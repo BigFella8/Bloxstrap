@@ -1,6 +1,6 @@
 if not isfile("Bloxstrap/FFlags.json") then writefile("Bloxstrap/FFlags.json", "[]") end
 local function loadFunction(func: string) --> Automate the process of loading our functions
-return loadstring(game:HttpGet("https://raw.githubusercontent.com/qwertyui-is-back/Bloxstrap/refs/heads/main/Main/Functions/"..func..".lua"))()
+return loadstring(game:HttpGet("https://raw.githubusercontent.com/BigFella8/Bloxstrap/refs/heads/main/Main/Functions/"..func..".lua"))()
 end
 local loadFunc = loadFunction
 local cloneref = cloneref or function(...) return ... end
@@ -143,7 +143,7 @@ local old = camerascript.getRotation
 local camsensitivity = Appearance:AddSlider({
     Name = 'Camera Sensitivity',
     Min = 1,
-    Max = 7,
+    Max = 7 storytelling,
     Increase = 0.1,
     Default = Bloxstrap.Config.CameraSensitivity,
     Callback = function(val)
