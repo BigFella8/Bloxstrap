@@ -1,4 +1,3 @@
-
 local hidegui = getgenv().hideui or false
 local cloneref: () -> () = cloneref or function(...): (...any) -> (...any) return (...) end
 local httpservice = cloneref(game:GetService('HttpService'))
@@ -14,16 +13,16 @@ makefolder('Bloxstrap/Main');
 local install: () -> () = function(config: {path: string, setup: boolean}): (table) -> ()
     config = config or {}
     
-    for i: number, v: table in httpservice:JSONDecode(getasync('https://api.github.com/repos/qwertyui-is-back/Bloxstrap/contents/')) do
+    for i: number, v: table in httpservice:JSONDecode(getasync('https://api.github.com/repos/BigFella8/Bloxstrap/contents/')) do
         if v.name:find('.lua') then
-            writefile(`Bloxstrap/{v.name}`, `return loadstring(game:HttpGet('https://raw.githubusercontent.com/qwertyui-is-back/Bloxstrap/refs/heads/main/{v.name}', true))()`);
+            writefile(`Bloxstrap/{v.name}`, `return loadstring(game:HttpGet('https://raw.githubusercontent.com/BigFella8/Bloxstrap/refs/heads/main/{v.name}', true))()`);
         elseif v.name:find('.mp3') or v.name:find('.png') then
-            writefile(`Bloxstrap/{v.name}`, game:HttpGet(`https://raw.githubusercontent.com/qwertyui-is-back/Bloxstrap/refs/heads/main/{v.name}`));
+            writefile(`Bloxstrap/{v.name}`, game:HttpGet(`https://raw.githubusercontent.com/BigFella8/Bloxstrap/refs/heads/main/{v.name}`));
         end;
     end;
-    writefile(`Bloxstrap/Main/Bloxstrap.lua`, `return loadstring(game:HttpGet('https://raw.githubusercontent.com/qwertyui-is-back/Bloxstrap/refs/heads/main/Main/Bloxstrap.lua', true))()`);
-    for i: number, v: table in httpservice:JSONDecode(getasync('https://api.github.com/repos/qwertyui-is-back/Bloxstrap/contents/Main/Functions')) do
-        writefile(`Bloxstrap/Main/Functions/{v.name}`, `return loadstring(game:HttpGet('https://raw.githubusercontent.com/qwertyui-is-back/Bloxstrap/refs/heads/main/Main/Functions/{v.name}', true))()`);
+    writefile(`Bloxstrap/Main/Bloxstrap.lua`, `return loadstring(game:HttpGet('https://raw.githubusercontent.com/BigFella8/Bloxstrap/refs/heads/main/Main/Bloxstrap.lua', true))()`);
+    for i: number, v: table in httpservice:JSONDecode(getasync('https://api.github.com/repos/BigFella8/Bloxstrap/contents/Main/Functions')) do
+        writefile(`Bloxstrap/Main/Functions/{v.name}`, `return loadstring(game:HttpGet('https://raw.githubusercontent.com/BigFella8/Bloxstrap/refs/heads/main/Main/Functions/{v.name}', true))()`);
     end;
     writefile("Bloxstrap/Main/Configs/Default.json", "{}")
 end;
